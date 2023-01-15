@@ -1,0 +1,54 @@
+* {
+    background-color: lightgray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav {
+    display: flex;
+    font-size: 24px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+nav p {
+    position: absolute;
+    top: 0px;
+    right: 150px;
+}
+
+body {
+    display: flex;
+}
+
+.card {
+    width: 400px;
+    height: 300px;
+    padding: 110px;
+    margin: 100px;
+    text-align: center;
+}
+
+button {
+    background-color: blue;
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#question-1 {
+    display: none;
+}
+
+#question-2 {
+    display: none;
+}
+
+#score {
+    display: none;
+}
+
+#high-score {
+    display: none;
+}

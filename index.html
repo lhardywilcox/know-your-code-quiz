@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="Enter your description here" />
+
+    <link rel="stylesheet" href="Assets/style.css" />
+    <title>Know Your Code!</title>
+</head>
+
+<body>
+    <nav>
+        <a href="#high-score">View High Scores</a>
+        <p>Timer:</p>
+    </nav>
+
+    <card class="card" id="title-card">
+        <h1>Know Your Code!</h1>
+        <h2>--A Coding Quiz--</h2>
+        <p>You will have one minute to answer ten questions. Keep in mind that incorrect answers will not only lower
+            your score, but will take 10 seconds off your time! Good luck!</p>
+        <button class="start">Start</button>
+    </card>
+
+    <card class="question card" id="question-1">
+
+        <h1>What is an example of a relative path to link a CSS file?</h1>
+        <button class="correct">./assets/css/style.css</button>
+        <button class="incorrect">#css/style</button>
+        <button class="incorrect">File>style.css</button>
+        <button class="incorrect">You don't need to link a css file</button>
+    </card>
+
+    <card class="question card" id="question-2">
+        <h1>Every HTML document should start with:</h1>
+        <button class="incorrect">A head tag</button>
+        <button class="incorrect">A CSS link</button>
+        <button class="correct">!DOCTYPE html tag</button>
+        <button class="incorrect">A meta tag</button>
+    </card>
+
+    <card class="score card" id="score">
+        <h1>You made it!</h1>
+        <h2> Your final score is:</h2>
+        <form>
+            <label for="initials">Your initials:</label>
+            <input class="initials" type="text">
+            <input class="submitbtn" type="submit">
+        </form>
+    </card>
+
+    <card class="high-score card" id="high-score">
+        <h1>High Scores:</h1>
+
+        <input class="goback" type="button" value="Go Back">
+        <input class="clear" type="button" value="Clear High Scores">
+
+    </card>
+</body>
