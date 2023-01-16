@@ -12,7 +12,7 @@ nav {
 
 nav p {
     position: absolute;
-    top: 0px;
+    top: 5px;
     right: 150px;
 }
 
@@ -21,11 +21,17 @@ body {
 }
 
 .card {
-    width: 400px;
-    height: 300px;
-    padding: 110px;
-    margin: 100px;
+    display: block;
+    position: relative;
+    width: 500px;
+    height: 400px;
+    padding: 250px 250px 10px 20px;
+    margin: 0 auto;
     text-align: center;
+}
+
+.card li {
+    list-style-type: none;
 }
 
 button {
@@ -37,16 +43,27 @@ button {
     border-radius: 10px;
 }
 
+#title-card {
+    display: block;
+}
+
 #question-1 {
     display: none;
+    text-align: left;
 }
 
 #question-2 {
     display: none;
+    text-align: left;
 }
 
 #score {
     display: none;
+    text-align: left;
+}
+
+#score form {
+    font-size: 24px;
 }
 
 #high-score {
