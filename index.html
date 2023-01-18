@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="Description" content="Enter your description here" />
-
     <link rel="stylesheet" href="Assets/style.css" />
+
     <title>Know Your Code!</title>
 </head>
 
 <body>
     <nav>
         <a href="#high-score">View High Scores</a>
-        <p>Timer:</p>
+        <p class="timer">Timer: 60 seconds</p>
     </nav>
 
     <card class="card" id="title-card">
@@ -25,42 +25,35 @@
         <button class="start">Start</button>
     </card>
 
-    <card class="question card" id="question-1">
-        <h1>What is an example of a relative path to link a CSS file?</h1>
+    <card class="question-card" id="q1">
+        <h1 class = "question"></h1>
         <ul>
-            <li><button class="correct">./assets/css/style.css</button></li>
-            <li><button class="incorrect">#css/style</button></li>
-            <li><button class="incorrect">File>style.css</button></li>
-            <li><button class="incorrect">You don't need to link a css file</button></li>
+            <li><button class="answer-1" onclick="showNextQuestion('a')"></button></li>
+            <li><button class="answer-2" onclick="showNextQuestion('b')"></button></li>
+            <li><button class="answer-3" onclick="showNextQuestion('c')"></button></li>
+            <li><button class="answer-4" onclick="showNextQuestion('d')"></button></li>
         </ul>
+
+        <h2 class="correctOrWrong"></h2>
     </card>
 
-    <card class="question card" id="question-2">
-        <h1>Every HTML document should start with:</h1>
-        <ul>
-            <li><button class="incorrect">A head tag</button></li>
-            <li><button class="incorrect">A CSS link</button></li>
-            <li><button class="correct">!DOCTYPE html tag</button></li>
-            <li><button class="incorrect">A meta tag</button></li>
-        </ul>
-    </card>
-
-    <card class="score card" id="score">
+    <card class="score-card" id="score">
         <h1>You made it!</h1>
-        <h2> Your final score is:</h2>
+        <h2 id="user-score"> Your final score is:</h2>
         <form>
             <label for="initials">Your initials:</label>
             <input class="initials" type="text">
-            <input class="submitbtn" type="submit">
+            <input class="submitbtn" type="submit" value="Submit">
         </form>
     </card>
 
-    <card class="high-score card" id="high-score">
+    <card class="high-score-card" id="high-score">
         <h1>High Scores:</h1>
         <br>
         <input class="goback" type="button" value="Go Back">
         <input class="clear" type="button" value="Clear High Scores">
     </card>
+    <script src="Assets/script.js"></script>
 </body>
 
 </html>

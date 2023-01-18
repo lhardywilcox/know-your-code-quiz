@@ -10,10 +10,10 @@ nav {
     padding-left: 20px;
 }
 
-nav p {
+.timer {
     position: absolute;
     top: 5px;
-    right: 150px;
+    right: 75px;
 }
 
 body {
@@ -47,12 +47,7 @@ button {
     display: block;
 }
 
-#question-1 {
-    display: none;
-    text-align: left;
-}
-
-#question-2 {
+#q1 {
     display: none;
     text-align: left;
 }
