@@ -13,7 +13,7 @@
 
 <body>
     <nav>
-        <a href="#high-score">View High Scores</a>
+        <a href="#high-score" id="high-score-link">View High Scores</a>
         <p class="timer">Timer: 60 seconds</p>
     </nav>
 
@@ -26,7 +26,7 @@
     </card>
 
     <card class="question-card" id="q1">
-        <h1 class = "question"></h1>
+        <h1 class="question"></h1>
         <ul>
             <li><button class="answer-1" onclick="showNextQuestion('a')"></button></li>
             <li><button class="answer-2" onclick="showNextQuestion('b')"></button></li>
@@ -48,7 +48,8 @@
     </card>
 
     <card class="high-score-card" id="high-score">
-        <h1>High Scores:</h1>
+        <h1>Current High Scores:</h1>
+        <p id="high-scores"></p>
         <br>
         <input class="goback" type="button" value="Go Back">
         <input class="clear" type="button" value="Clear High Scores">
