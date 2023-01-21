@@ -12,7 +12,9 @@ var timeEl = document.querySelector(".timer");
 var titleCard = document.querySelector("#title-card");
 var scoreCard = document.querySelector("#score");
 var highScoreCard = document.querySelector(".high-score-card");
+
 var userScore = document.querySelector("#user-score");
+var highScores = document.querySelector("#high-scores");
 
 var questionEl = document.querySelector(".question");
 var answer1El = document.querySelector(".answer-1");
@@ -21,8 +23,6 @@ var answer3El = document.querySelector(".answer-3");
 var answer4El = document.querySelector(".answer-4");
 
 var correctOrWrong = document.querySelector(".correctOrWrong");
-
-var highScoreList = [];
 
 // Array of Question Objects
 const questions = [
@@ -122,11 +122,10 @@ function scoreQuestion() {
     questionCard.style.display = "none";
     scoreCard.style.display = "block";
     userScore.innerHTML = "Your final score is: " + score;
-    endGame();
+    storeScores();
 }
 
-function endGame() {
-
+function storeScores() {
     // input initials
     // save initials and score to local storage
     submitBtn.addEventListener("click", function (event) {
@@ -137,37 +136,44 @@ function endGame() {
             score: score
         };
 
-        highScoreList.push(newScoreEntry);
+        localStorage.setItem("newScoreEntry", JSON.stringify(newScoreEntry));
 
-        console.log(highScoreList);
+        console.log(newScoreEntry);
+
+         var highScoreList = JSON.parse(localStorage.getItem("newScoreEntry")) || [];
+
+        if (highScoreList === null) {
+            highScoreList.push(newScoreEntry);
+        } else {
+            highScoreList.push(newScoreEntry)
+        };
 
         localStorage.setItem("highScoreList", JSON.stringify(highScoreList));
+
+        console.log(highScoreList);
+        console.log("See the scores?");
     });
 
-    console.log("Ending game!");
+};
 
-    // reset browser window after 10 second delay
 
-    setTimeout(() => {
-        document.location.reload();
-    }, 10000);
-}
+// reset browser window after 10 second delay
+
+/* setTimeout(() => {
+    document.location.reload();
+}, 10000);
+} */
 
 highScoreLink.addEventListener("click", function () {
     showHighScores();
 });
 
 function showHighScores() {
-    titleCard.style.display = "none";
+    scoreCard.style.display = "none";
     highScoreCard.style.display = "block";
 
     // get list of scores from local storage
-    JSON.parse(localStorage.getItem("highScoreList"));
 
-    if (highScoreList !== null) {
-        document.querySelector("#high-scores").textContent = highScoreList.initials + " - " + highScoreList.score
-    };
-    console.log("See the scores?");
 }
 
 goBackBtn.addEventListener("click", function () {
@@ -179,4 +185,42 @@ clearScoreBtn.addEventListener("click", function () {
     console.log("All clear!");
     document.location.reload();
 });
+
+    // reset browser window after 10 second delay
+
+/*  setTimeout(() => {
+     document.location.reload();
+ }, 10000); */
+
+
+/* highScoreLink.addEventListener("click", function () {
+    showHighScores();
+    }); */
+
+/* function showHighScores() {
+    titleCard.style.display = "none";
+    highScoreCard.style.display = "block";
+
+    // get list of scores from local storage
+    var scoreList = JSON.parse(localStorage.getItem("highScoreList"));
+
+    console.log(scoreList);
+
+    if (scoreList !== null) {
+        document.querySelector("#high-scores").textContent = scoreList.initials + " - " + scoreList.score
+    };
+    console.log("See the scores?");
+} */
+
+
+/* goBackBtn.addEventListener("click", function () {
+    document.location.reload();
+});
+
+
+clearScoreBtn.addEventListener("click", function () {
+    localStorage.clear();
+    console.log("All clear!");
+    document.location.reload();
+}); */
 
