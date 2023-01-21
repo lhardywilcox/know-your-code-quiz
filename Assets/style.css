@@ -3,6 +3,10 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+h1 {
+    font-size: 42px;
+}
+
 nav {
     display: flex;
     font-size: 24px;
@@ -20,18 +24,14 @@ body {
     display: flex;
 }
 
-.card {
+card {
     display: block;
     position: relative;
     width: 500px;
     height: 400px;
-    padding: 250px 250px 10px 20px;
+    padding: 250px 275px 10px 20px;
     margin: 0 auto;
     text-align: center;
-}
-
-.card li {
-    list-style-type: none;
 }
 
 button {
@@ -50,6 +50,7 @@ button {
 #q1 {
     display: none;
     text-align: left;
+    list-style-type: none;
 }
 
 #score {
@@ -63,4 +64,22 @@ button {
 
 #high-score {
     display: none;
+}
+
+#high-scores {
+    list-style-type: none;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+    color: blue;
+}
+
+.goback,
+.clear {
+    background-color: blue;
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 20px;
+    border-radius: 10px;
 }

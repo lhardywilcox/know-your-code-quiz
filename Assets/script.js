@@ -9,6 +9,7 @@ var submitBtn = document.querySelector(".submitbtn");
 var goBackBtn = document.querySelector(".goback");
 var clearScoreBtn = document.querySelector(".clear");
 var timeEl = document.querySelector(".timer");
+
 var titleCard = document.querySelector("#title-card");
 var scoreCard = document.querySelector("#score");
 var highScoreCard = document.querySelector(".high-score-card");
@@ -159,11 +160,13 @@ function storeScores() {
 } */
 
 highScoreLink.addEventListener("click", function () {
+    scoreCard.style.display = "none";
     showHighScores();
 });
 
 function showHighScores() {
     scoreCard.style.display = "none";
+    titleCard.style.display = "none";
     highScoreCard.style.display = "block";
 
     // get list of scores from local storage
@@ -181,10 +184,12 @@ function showHighScores() {
 // reloads browser window so quiz can restart
 goBackBtn.addEventListener("click", function () {
     document.location.reload();
+    highScoreCard.style.display = "none";
 });
 // clears High Score list from local storage, reloads browser window
 clearScoreBtn.addEventListener("click", function () {
     localStorage.clear();
     console.log("All clear!");
     document.location.reload();
+    highScoreCard.style.display = "none";
 });
