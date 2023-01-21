@@ -50,6 +50,10 @@ button {
 #q1 {
     display: none;
     text-align: left;
+}
+
+#q1,
+li {
     list-style-type: none;
 }
 
