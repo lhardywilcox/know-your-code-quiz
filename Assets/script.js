@@ -131,16 +131,12 @@ function storeScores() {
     submitBtn.addEventListener("click", function (event) {
         event.preventDefault();
 
+        var highScoreList = JSON.parse(localStorage.getItem("highScoreList")) || [];
+
         var newScoreEntry = {
             initials: initials.value,
             score: score
         };
-
-        localStorage.setItem("newScoreEntry", JSON.stringify(newScoreEntry));
-
-        console.log(newScoreEntry);
-
-         var highScoreList = JSON.parse(localStorage.getItem("newScoreEntry")) || [];
 
         if (highScoreList === null) {
             highScoreList.push(newScoreEntry);
@@ -155,8 +151,6 @@ function storeScores() {
     });
 
 };
-
-
 // reset browser window after 10 second delay
 
 /* setTimeout(() => {
@@ -173,54 +167,24 @@ function showHighScores() {
     highScoreCard.style.display = "block";
 
     // get list of scores from local storage
-
-}
-
-goBackBtn.addEventListener("click", function () {
-    document.location.reload();
-});
-
-clearScoreBtn.addEventListener("click", function () {
-    localStorage.clear();
-    console.log("All clear!");
-    document.location.reload();
-});
-
-    // reset browser window after 10 second delay
-
-/*  setTimeout(() => {
-     document.location.reload();
- }, 10000); */
-
-
-/* highScoreLink.addEventListener("click", function () {
-    showHighScores();
-    }); */
-
-/* function showHighScores() {
-    titleCard.style.display = "none";
-    highScoreCard.style.display = "block";
-
-    // get list of scores from local storage
-    var scoreList = JSON.parse(localStorage.getItem("highScoreList"));
+    var scoreList = JSON.parse(localStorage.getItem("highScoreList")) || [];
 
     console.log(scoreList);
 
-    if (scoreList !== null) {
-        document.querySelector("#high-scores").textContent = scoreList.initials + " - " + scoreList.score
-    };
-    console.log("See the scores?");
-} */
+    highScores.innerHTML = scoreList
+        .map(score => {
+            return `<li class="score">${score.initials} - ${score.score}</li>`;
+        })
+        .join("");
 
-
-/* goBackBtn.addEventListener("click", function () {
+}
+// reloads browser window so quiz can restart
+goBackBtn.addEventListener("click", function () {
     document.location.reload();
 });
-
-
+// clears High Score list from local storage, reloads browser window
 clearScoreBtn.addEventListener("click", function () {
     localStorage.clear();
     console.log("All clear!");
     document.location.reload();
-}); */
-
+});
