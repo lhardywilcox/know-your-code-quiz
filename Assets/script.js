@@ -150,14 +150,12 @@ function storeScores() {
         console.log(highScoreList);
         console.log("See the scores?");
     });
+    // reset browser window after 10 second delay
+    setTimeout(() => {
+        document.location.reload();
+    }, 12000);
 
 };
-// reset browser window after 10 second delay
-
-/* setTimeout(() => {
-    document.location.reload();
-}, 10000);
-} */
 
 highScoreLink.addEventListener("click", function () {
     scoreCard.style.display = "none";
