@@ -29,9 +29,13 @@ card {
     position: relative;
     width: 500px;
     height: 400px;
-    padding: 250px 275px 10px 20px;
+    padding: 200px 275px 10px 20px;
     margin: 0 auto;
     text-align: center;
+}
+
+card h1 {
+    font-size: 36px;
 }
 
 button {
