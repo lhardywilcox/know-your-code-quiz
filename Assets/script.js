@@ -29,31 +29,38 @@ var correctOrWrong = document.querySelector(".correctOrWrong");
 const questions = [
     // Object for Question 1
     {
-        question: "Question 1",
+        question: "What is an example of a relative path to link a css file?",
         //         a    b    c    d
-        options: ["1", "2", "3", "4"],
+        options: ["./assets/css/style.css", "#css/style", "file>style.css", "You don't need to link a css file."],
         answer: "a"
     },
     // Object for Question 2
     {
-        question: "Question 2",
+        question: "What is the default behavior called that is used to move declarations to the top of the current scope?",
         //         a    b    c    d
-        options: ["a", "b", "c", "d"],
-        answer: "b"
+        options: ["jumping", "sorting", "hoisting", "arranging"],
+        answer: "c"
     },
     // Object for Question 3
     {
-        question: "Question 3",
+        question: "#FFFF00 is an example of a color shown in what kind of value?",
         //         a    b    c    d
-        options: ["A", "B", "C", "D"],
-        answer: "c"
+        options: ["RGB Value", "Decimal Value", "Color Value", "Hex Value"],
+        answer: "d"
     },
     // Object for Question 4
     {
-        question: "Question 4",
+        question: "What is the format that is used for storing and transmitting data called?",
         //         a    b    c    d
-        options: ["!", "@", "#", "$"],
+        options: ["Font", "Syntax", "HTML", "JSON"],
         answer: "d"
+    },
+    // Object for Question 5
+    {
+        question: "What is the element that will continue to run a block of code as long as the specified condition is TRUE?",
+        //         a    b    c    d
+        options: ["Debugger", "Loop", "Clone", "Repeater"],
+        answer: "b"
     }
 ]
 
@@ -116,6 +123,7 @@ function showNextQuestion(option) {
     setTimeout(function () {
         correctOrWrong.innerHTML = "";
     }, 1000);
+
 }
 
 function scoreQuestion() {
@@ -150,7 +158,7 @@ function storeScores() {
         console.log(highScoreList);
         console.log("See the scores?");
     });
-    // reset browser window after 10 second delay
+    // reset browser window after 12 second delay
     setTimeout(() => {
         document.location.reload();
     }, 12000);
@@ -171,7 +179,7 @@ function showHighScores() {
     var scoreList = JSON.parse(localStorage.getItem("highScoreList")) || [];
 
     console.log(scoreList);
-
+    // changes object into array of strings, turns them into list items, inserts those list items into the HTML
     highScores.innerHTML = scoreList
         .map(score => {
             return `<li class="score">${score.initials} - ${score.score}</li>`;
@@ -179,12 +187,12 @@ function showHighScores() {
         .join("");
 
 }
-// reloads browser window so quiz can restart
+// reloads browser window so quiz can restart, hides highScoreCard
 goBackBtn.addEventListener("click", function () {
     document.location.reload();
     highScoreCard.style.display = "none";
 });
-// clears High Score list from local storage, reloads browser window
+// clears High Score list from local storage, reloads browser window, hides highScoreCard
 clearScoreBtn.addEventListener("click", function () {
     localStorage.clear();
     console.log("All clear!");
